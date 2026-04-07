@@ -1,0 +1,17 @@
+# Transkriptions-Ausgaben (persönliche Notizen, nicht ins Repo)
+transcriptions/
+
+# Temporäre Dateien der App
+*.suffix_tmp
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# Whisper-Modell-Cache (wird lokal gespeichert, nicht im Repo)
+.cache/
+
+# Windows
+Thumbs.db
+desktop.ini
