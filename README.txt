@@ -17,7 +17,7 @@ STARTEN
     python transcriber.py
 
 Beim allerersten Start wird das Whisper-Modell von
-HuggingFace heruntergeladen (~1,5 GB für "medium").
+HuggingFace heruntergeladen (~500 MB für "small").
 Das dauert einige Minuten und geschieht nur einmalig.
 
 
@@ -61,10 +61,10 @@ CHUNK_SECONDS   Wie viele Sekunden Audio pro Transkriptionsaufruf
                 – Kleiner = weniger Verzögerung, aber ungenauer
                 – Größer = genauer, aber mehr Verzögerung
 
-WHISPER_MODEL   Qualitätsstufe des Modells:
+WHISPER_MODEL   Qualitätsstufe des Modells (Standard: "small"):
                   "tiny"    – sehr schnell, weniger genau (~150 MB)
-                  "small"   – guter Kompromiss          (~500 MB)
-                  "medium"  – empfohlen, sehr genau     (~1,5 GB)
+                  "small"   – guter Kompromiss          (~500 MB)  ← Standard
+                  "medium"  – sehr genau, langsamer     (~1,5 GB)
                   "large-v3"– beste Qualität, langsam   (~3 GB)
 
 LANGUAGE        None  = automatische Erkennung (Standard)
@@ -77,9 +77,10 @@ DEVICE          "cpu"   – Standard, funktioniert immer
 
 BEKANNTE EINSCHRÄNKUNGEN
 -------------------------
-– Auf CPU dauert die Transkription von 5 Sek. Audio ca. 3–15 Sek.
+– Auf CPU dauert die Transkription von 5 Sek. Audio ca. 2–8 Sek.
   (je nach Rechner). Es gibt also eine sichtbare Verzögerung.
-  Mit "small" statt "medium" wird sie kürzer.
+  Die App verarbeitet ausstehende Chunks nach dem Stoppen noch fertig.
+  Mit "tiny" statt "small" wird sie schneller, aber ungenauer.
 
 – Das Tastenkürzel Ctrl+Shift+S benötigt auf manchen Systemen
   Administrator-Rechte. Der Enter-Fallback funktioniert immer.
